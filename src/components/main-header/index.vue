@@ -72,7 +72,6 @@ export default {
     },
     computed:{
         User(){
-            console.log();
             return this.$store.state.Usertoken.SystemToken;
         },
         currentPath(){

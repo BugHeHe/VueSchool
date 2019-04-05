@@ -27,10 +27,18 @@ export default {
     data(){
         return {
             shrink:false,
+            User:'',
         }
     },
     created(){
-        this.$store.dispatch('load_menus');
+        if(this.$store.state.Usertoken.SystemToken==null || this.$store.state.Usertoken.SystemToken==""){
+           return this.$router.push('/login');
+        }
+        
+        this.$http.get('http://localhost:8084/api/Menu/MenuList',this.$store.state.Usertoken.SystemToken).then(res=>{
+            console.log(res.data);
+        })
+        // this.$store.dispatch('load_menus');
     },
     components:{SiderMenu,LogoCon,MainHeader}
 }

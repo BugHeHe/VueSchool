@@ -65,7 +65,6 @@
                 //     console.log(res.data);
                 // })
                 this.$store.dispatch('SystemUserLogin',this.user).then(res=>{
-                    console.log(res);
                    if(res!=null){
                        this.$router.push('/');
                    }else{
