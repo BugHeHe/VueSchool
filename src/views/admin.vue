@@ -34,11 +34,15 @@ export default {
         if(this.$store.state.Usertoken.SystemToken==null || this.$store.state.Usertoken.SystemToken==""){
            return this.$router.push('/login');
         }
-        
-        this.$http.get('http://localhost:8084/api/Menu/MenuList',this.$store.state.Usertoken.SystemToken).then(res=>{
-            console.log(res.data);
-        })
-        // this.$store.dispatch('load_menus');
+        let userid=this.$store.state.Usertoken.SystemToken.id;
+         this.$store.dispatch('MenuList1actions').then(res=>{
+             if(res){
+
+             }else
+             {
+                 alert("出现错误");
+             }
+         });
     },
     components:{SiderMenu,LogoCon,MainHeader}
 }

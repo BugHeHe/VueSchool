@@ -65,10 +65,10 @@
                 //     console.log(res.data);
                 // })
                 this.$store.dispatch('SystemUserLogin',this.user).then(res=>{
-                   if(res!=null){
+                   if(res){
                        this.$router.push('/');
                    }else{
-                       this.$Message.success("登录失败！");
+                       this.$Message.error("输入错误");
                    }
                 });
             }

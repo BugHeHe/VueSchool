@@ -11,8 +11,14 @@ const mutations = {
 const actions = {
     SystemUserLogin({commit},user){
         return ap.SelectListFirstOrDefault('UserLogin',user).then(res=>{
-             commit('SystemLogin',res.data);
-             return res.data;
+            console.log(res.data);
+            if(res.data==null || res.data==''){
+                return false;
+            }else
+            {
+                commit('SystemLogin', res.data);
+                return true;
+            }
         }).catch(er=>{
             console.log(er+"出现错误");
             return false;
