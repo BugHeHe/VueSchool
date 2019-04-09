@@ -1,7 +1,7 @@
 import api from '../../utils/API.js'
 let ap = new api('mokuai');
 const state = {
-    MenuList:new Array(),
+    MenuList:[],
 }
 const mutations = {
     MneuListMutations(state, data) {
@@ -12,7 +12,6 @@ const actions = {
     //根据当前人登录的信息 获取该权限所拥有的的 功能
     MenuList1actions({commit}) {
         return ap.SelectListFirstOrDefault('MenuList').then(res => {
-            console.log(res.data);
             if (res.data == '' || res.data==null) {
                 commit('MneuListMutations', null);
                 return false;

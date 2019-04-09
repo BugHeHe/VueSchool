@@ -93,7 +93,6 @@ export default {
     },
     methods:{
         SelectedDropDownItem(name){
-            console.log(name);
             switch(name){
                 case "logOff":
                     // this.$store.dispatch('SIGN_OFF');

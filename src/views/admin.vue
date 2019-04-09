@@ -34,15 +34,7 @@ export default {
         if(this.$store.state.Usertoken.SystemToken==null || this.$store.state.Usertoken.SystemToken==""){
            return this.$router.push('/login');
         }
-        let userid=this.$store.state.Usertoken.SystemToken.id;
-         this.$store.dispatch('MenuList1actions').then(res=>{
-             if(res){
-
-             }else
-             {
-                 alert("出现错误");
-             }
-         });
+       
     },
     components:{SiderMenu,LogoCon,MainHeader}
 }

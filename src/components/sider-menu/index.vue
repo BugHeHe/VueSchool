@@ -16,6 +16,7 @@ export default {
         shrink: { type: Boolean, default: false }
     },
     computed: {
+        
         Menus(){
             return Helper.getMenus();
         }
