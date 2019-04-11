@@ -1,7 +1,7 @@
 <template>
     <DropdownMenu style="padding:0;text-align:left;">
-        <template v-for="c in item.menu" >
-            <DropdownItem :key="c.id" v-if="c.menu==undefined" :name="c.menuName">
+        <template v-for="c in item" >
+            <DropdownItem :key="c.id" v-if="c.menu==undefined" :name="c.name">
                 <Icon :type="c.icon" /><span style="padding-left:8px;">
                     {{c.menuName}}
                 </span>

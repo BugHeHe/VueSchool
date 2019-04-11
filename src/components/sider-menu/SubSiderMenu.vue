@@ -4,11 +4,11 @@
         <!-- 子菜单的 标题 -->
         <template slot="title">
             <Icon :type="item.icon" size=14 v-if="item.icon!=null || item.icon!=undefined"></Icon>
-            <span class="layout-text" :key="'title' + item.moduleName">{{item.moduleName}}</span>  
+            <span class="layout-text" :key="'item.id' + item.moduleName">{{item.moduleName}}</span>  
         </template>
         <!-- 子菜单列表 -->
         <template v-for="child in item.menu">
-            <MenuItem :name="child.menuName" :key='child.id' v-if="isEmpty(child)">
+            <MenuItem :name="child.name" :key='child.id' v-if="isEmpty(child)">
                 <Icon :type="child.icon" size=14 ></Icon>
                 <span class="layout-text">{{ child.menuName }}</span>
             </MenuItem>
@@ -23,10 +23,11 @@ export default {
     name:'SubSiderMenu',
     methods:{
         isEmpty(item){
-            if (item.children===undefined || item.children===null)
+            console.log(item);
+            if (item.menu===undefined || item.menu===null)
                 return true;
-            if (item.children!=undefined && item.children!=null){
-                if (item.children.length===0)
+            if (item.menu!=undefined && item.menu!=null){
+                if (item.menu.length===0)
                     return true;
             }
             return false;

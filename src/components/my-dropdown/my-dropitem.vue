@@ -1,5 +1,5 @@
 <template>
-    <Tooltip :content="item.title" placement="right">
+    <Tooltip :content="item.moduleName" placement="right">
         <Button @click="Select(item.name)" style="width: 65px;margin-left: -5px;padding:10px 0;border-radius:0" type="text">
             <Icon :size="20" :color="IconColor"  :type="item.icon"></Icon>
         </Button>

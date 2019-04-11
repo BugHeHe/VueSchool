@@ -61,9 +61,6 @@
         },
         methods: {
             handleSubmit () {
-                // this.$http.post('http://localhost:8084/api/User/UserLogin',this.user).then(res=>{
-                //     console.log(res.data);
-                // })
                 this.$store.dispatch('SystemUserLogin',this.user).then(res=>{
                    if(res){
                        this.$router.push('/');

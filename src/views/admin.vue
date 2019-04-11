@@ -27,14 +27,13 @@ export default {
     data(){
         return {
             shrink:false,
-            User:'',
         }
     },
     created(){
-        if(this.$store.state.Usertoken.SystemToken==null || this.$store.state.Usertoken.SystemToken==""){
+         if(this.$store.state.Usertoken.SystemToken==null || this.$store.state.Usertoken.SystemToken==""){
            return this.$router.push('/login');
         }
-       
+        this.$store.dispatch('load_menus',this.$store.state.Usertoken.SystemToken.id);
     },
     components:{SiderMenu,LogoCon,MainHeader}
 }

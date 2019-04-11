@@ -20,11 +20,20 @@ var admin = {
             name: 'dashboard',
             component: ()=>import ('@/views/demo.vue')
         },
+        {
+            path:'Check',
+            name:'Check',
+            component:()=>import('@/views/exam/Check.vue')
+        },{
+            path:'ShowQuextion',
+            name:'ShowQuextion',
+            component: () => import('@/views/exam/ShowQuextion.vue')
+        }
     ]
 }
 
 var router =new Router({
-    mode:'history',
+    mode: 'history',
     routes: [
        login,
        admin   

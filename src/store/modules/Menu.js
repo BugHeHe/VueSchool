@@ -10,8 +10,8 @@ const mutations = {
 }
 const actions = {
     //根据当前人登录的信息 获取该权限所拥有的的 功能
-    MenuList1actions({commit}) {
-        return ap.SelectListFirstOrDefault('MenuList').then(res => {
+    MenuList1actions({commit},UserID) {
+        return ap.SelectListFirstOrDefault('MenuList',{id:UserID}).then(res => {
             if (res.data == '' || res.data==null) {
                 commit('MneuListMutations', null);
                 return false;

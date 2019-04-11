@@ -1,7 +1,7 @@
 <template>
     <Dropdown @on-click="select">
         <Button type="primary">
-            {{item.title}}
+            {{item.menuName}}
             <Icon type="ios-arrow-down"></Icon>
         </Button>
         <my-dropmenu :item="item" slot="list" placement="right-start"></my-dropmenu>

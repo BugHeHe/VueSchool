@@ -19,6 +19,7 @@ export default {
     components:{MyDropItem,MyDropmenu},
     props:{
         theme:{
+            type:String,
             default:'dark'
         },
         menuList:{

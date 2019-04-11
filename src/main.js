@@ -5,15 +5,13 @@ import router from './router'
 import store from './store'
 import iView from 'iview'
 import 'iview/dist/styles/iview.css'
-import axios from 'axios'
-
 
 Vue.use(iView);
 Vue.config.productionTip = false
-Vue.prototype.$http = axios;
 
 /* eslint-disable no-new */
 new Vue({
+   
     el: '#app',
     router,
     store,

@@ -2,6 +2,8 @@
 import router from '@/router'
 import loader from '@/utils/cmp-loader'
 import axios from 'axios'
+import api from '../utils/API.js'
+let ap = new api('mokuai');
 
 const state = {
     menus:[],   //菜单
@@ -9,7 +11,6 @@ const state = {
         {
             id:'dashboard',
             name:'dashboard',
-            title:'首页',
             path:'/',
             icon:'md-speedometer',
             close:false
@@ -58,9 +59,16 @@ const actions = {
      * 获取所有的菜单数据
      * @param {commit} 提交对象 
      */
-    load_menus({commit}){
-        axios.get('/static/data/menus.json').then(res=>{
-            commit('set_menus',res.data);
+    load_menus({ commit }, UserID){
+         ap.SelectListFirstOrDefault('MenuList', { id: UserID }).then(res => {
+            if (res.data == '' || res.data == null) {
+                commit('set_menus', null);
+            } else {
+                commit('set_menus', res.data);
+            }
+
+        }).catch(er => {
+            console.log(er+"出现错误");
         });
     },
     open({commit,state},name){

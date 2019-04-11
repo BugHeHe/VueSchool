@@ -49,8 +49,7 @@
                                 退出登录
                             </DropdownItem>
                         </DropdownMenu>
-                    </Dropdown>
-                                   
+                    </Dropdown>                 
                 </Row>
                 </div>
             </div>
@@ -67,11 +66,10 @@ export default {
     data(){
         return {
             shrink:false,
-            
         }
     },
     computed:{
-        User(){
+         User(){
             return this.$store.state.Usertoken.SystemToken;
         },
         currentPath(){
@@ -93,6 +91,7 @@ export default {
     },
     methods:{
         SelectedDropDownItem(name){
+            console.log(name);
             switch(name){
                 case "logOff":
                     // this.$store.dispatch('SIGN_OFF');
