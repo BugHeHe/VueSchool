@@ -21,13 +21,27 @@ var admin = {
             component: ()=>import ('@/views/demo.vue')
         },
         {
-            path:'Check',
-            name:'Check',
-            component:()=>import('@/views/exam/Check.vue')
+            path:'xitong',
+            name:'xitong',
+            component: () => import('@/views/Ping/xitong.vue')
         },{
-            path:'ShowQuextion',
-            name:'ShowQuextion',
-            component: () => import('@/views/exam/ShowQuextion.vue')
+            path:'caidan',
+            name:'caidan',
+            component: () => import('@/views/Ping/caidan.vue')
+        },
+        {
+            path: 'Role',
+            name: 'Role',
+            component: () => import('@/views/Ping/Role.vue')
+        },{
+            path: 'User',
+            name: 'User',
+            component: () => import('@/views/Ping/User.vue')
+        },
+        {
+            path: 'quanXian',
+            name: 'quanXian',
+            component: () => import('@/views/Ping/quanXian.vue')
         }
     ]
 }

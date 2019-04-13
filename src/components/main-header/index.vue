@@ -96,6 +96,7 @@ export default {
                 case "logOff":
                     // this.$store.dispatch('SIGN_OFF');
                     // this.$store.dispatch('CLOSE_ALL_TAGS')
+                    this.$store.state.Usertoken.SystemToken=null;
                     this.$router.push('/login'); 
                     break;
                 case "accInfo":
