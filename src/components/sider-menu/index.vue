@@ -24,7 +24,6 @@ export default {
     },
     methods: {
         handleSelect (name) {
-            console.log(name);
             if (name!=this.$route.name){
                 this.$router.push({
                     name: name

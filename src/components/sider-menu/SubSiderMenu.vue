@@ -23,7 +23,6 @@ export default {
     name:'SubSiderMenu',
     methods:{
         isEmpty(item){
-            console.log(item);
             if (item.menu===undefined || item.menu===null)
                 return true;
             if (item.menu!=undefined && item.menu!=null){

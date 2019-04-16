@@ -36,12 +36,16 @@ var admin = {
         },{
             path: 'User',
             name: 'User',
-            component: () => import('@/views/Ping/User.vue')
+            component: () => import('@/views/Ping/User.vue'),
         },
         {
             path: 'quanXian',
             name: 'quanXian',
             component: () => import('@/views/Ping/quanXian.vue')
+        },{
+            path:'UserRole',
+            name:'UserRole',
+            component:()=>import('@/views/Ping/User/UserRole.vue')
         }
     ]
 }

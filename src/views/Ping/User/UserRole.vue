@@ -10,15 +10,7 @@
                 @on-ok="XiuTi"
               >
                 <Form ref="Dui" :model="Dui" :label-width="100">
-                        <FormItem label="用户名：">
-                            <Input type="text" v-model="Dui.userName" clearable />
-                        </FormItem>
-                         <FormItem label="账号：">
-                            <Input type="text" v-model="Dui.userCid" clearable />
-                        </FormItem>
-                         <FormItem label="密码：">
-                            <Input type="text" v-model="Dui.password" clearable />
-                        </FormItem>
+                       
                 </Form>
             </Modal>
     </Row>
@@ -31,9 +23,8 @@ export default {
         return{
              Dui:{
                 id:'',
-                userName:'',    
-                userCid:'',
-                password:'',
+                roleName:'',    
+                description:'',
             },//进行修改角色
 
             modal1:false,
@@ -45,36 +36,16 @@ export default {
                         align: 'center'
                     },
                     {
-                        title: '姓名',
-                        key: 'userName'
+                        title: '角色名称',
+                        key: 'roleName'
                     },
                     {
-                        title: '账号',
-                        key:'userCid',
-                    },{
-                        title:'密码',
-                        key:'password',
+                        title: '角色描述',
+                        key:'description',
                     }
                     ,{
                     title:'操作',
                     render:(h,obj)=>{
-                        let btn1 = {
-                            // 属性
-                            props:{
-                                type:'primary',
-                            },
-                            style:{
-                                marginRight:'8px'
-                            },
-                            // 事件
-                            on:{
-                                click:()=>{
-                                    //进入用户的角色中
-                                    this.$store.state.Usertoken.Dan=obj.row;
-                                    this.$router.push('/UserRole');
-                                }
-                            }
-                        };
                         let btn2 = {
                             // 属性
                             props:{
@@ -86,10 +57,9 @@ export default {
                             // 事件
                             on:{
                                 click:()=>{
-                                     this.Dui.userName=obj.row.userName;
-                                     this.Dui.userCid=obj.row.userCid;
-                                     this.Dui.password=obj.row.password;
-                                     this.Dui.id=obj.row.id,
+                                     this.Dui.roleName=obj.row.roleName;
+                                     this.Dui.description=obj.row.description;
+                                     this.Dui.id=obj.row.id;
                                      this.modal2=true;
                                 }
                             }
@@ -102,12 +72,12 @@ export default {
                             // 事件
                             on:{
                                 click:()=>{
-                                   this.Chu('UserDeleteAction',obj.row.id);
+                                    alert("删除");
                                 }
                             }
                         };
                         let arry = [
-                            h('Button',btn1,'用户角色'),
+                           
                             h('Button',btn2,'修改'),
                             h('Button',btn3,'删除'),
                         ]
@@ -125,7 +95,9 @@ export default {
         }
     },
      created(){
-          this.Chu('SystemListUser');
+         if(this.$store.state.Usertoken.Dan==null || this.$store.state.Usertoken.Dan==''){
+             this.$router.push('/User');
+         }
     },
     methods:{
         Chu(name){
@@ -160,23 +132,20 @@ export default {
                             }
                         })
             },
+            //页数发生改变
             Yebian(s){
                 let kai=(s-1)*this.tiao;//开始
                 let jie=s*this.tiao;//结束
                 this.historyData=this.zong.slice(kai,jie);
             },
+            //条数发生改变
             TiaoBian(s){ 
                 this.historyData=this.zong.slice(0,s);
-            },
-            //查询角色
-            Jue(s){
-                this.modal1=true;
-                console.log(s);
             },
             //修改进行提交
             XiuTi(){
                 console.log(this.Dui);
-                this.Chu('UserGaiAction',this.Dui);
+                //this.Chu('UserGaiAction',this.Dui);
             }
         
             

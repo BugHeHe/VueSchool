@@ -29,8 +29,8 @@ class API{
      * 删除操作，参数为ID
      * @param {参数为主键ID} id 
      */
-    Delete(action, id) {
-        return axios.post(this.api + `/${action}`, id);
+    Delete(action, obj) {
+        return axios.post(this.api + `/${action}`, obj);
     }
     /**
      * 
